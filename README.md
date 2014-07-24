@@ -1,5 +1,5 @@
-docker-notebook
-===============
+Dockerized Notebook
+===================
 
 Docker container for the IPython notebook (single user).
 
@@ -13,9 +13,11 @@ docker run -d -p 8888:8888 ipython/notebook
 
 ## Hacking on the Dockerfile
 
-Clone this repository
+Clone this repository, make changes then build the container:
 
 ```
 docker build -t notebook .
 docker run -d -p 8888:8888 notebook
 ```
+
+If you have any suggestions including baseline software that you think should be installed, submit an issue or a pull request!
