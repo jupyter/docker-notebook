@@ -8,10 +8,10 @@ Docker container for the IPython notebook (single user).
 Assuming you have docker installed, run this to start up a notebook server on port 8888:
 
 ```
-docker run -d -p localhost:8888:8888 ipython/notebook
+docker run -d -p localhost:8888:8888 -e "PASSWORD=MakeAPassword" ipython/notebook
 ```
 
-Make sure to access it at "https://localhost:8888"
+You'll now be able to access your notebook at https://localhost:8888 with password MakeAPassword (please change the environment varialbe above).
 
 ## Hacking on the Dockerfile
 
