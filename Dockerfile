@@ -27,4 +27,11 @@ RUN pip install ipython[notebook]
 
 EXPOSE 8888
 
-CMD ipython notebook --no-browser --port 8888 --ip=*
+# You can mount your own SSL certs as necessary here
+ENV PEM_FILE /key.pem
+ENV PASSWORD Dont make this your default
+
+ADD notebook.sh /
+RUN chmod u+x /notebook.sh
+
+CMD /notebook.sh
