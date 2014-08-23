@@ -1,5 +1,5 @@
-# Using the Ubuntu image
-FROM ubuntu:14.04
+# Using the base IPython image
+FROM ipython/base
 
 MAINTAINER IPython Project <ipython-dev@scipy.org>
  
