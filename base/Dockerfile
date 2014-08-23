@@ -1,4 +1,3 @@
-# Using the Ubuntu image
 FROM ubuntu:14.04
 
 MAINTAINER IPython Project <ipython-dev@scipy.org>
