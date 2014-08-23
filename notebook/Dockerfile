@@ -11,7 +11,7 @@ EXPOSE 8888
 ENV PEM_FILE /key.pem
 ENV PASSWORD Dont make this your default
 
-ADD ../notebook.sh /
+ADD notebook.sh /
 RUN chmod u+x /notebook.sh
 
 CMD /notebook.sh
