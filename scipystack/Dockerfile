@@ -13,4 +13,5 @@ RUN apt-get build-dep -y python python-scipy python-matplotlib cython && \
   apt-get clean -y
 
 # Extremely basic test of install
-RUN ipython -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt"
+RUN iptest
+RUN python -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, statsmodels, yt, patsy"
