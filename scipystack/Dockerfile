@@ -2,7 +2,7 @@ FROM ipython/base
 
 MAINTAINER IPython Project <ipython-dev@scipy.org>
  
-RUN apt-get install -y liblapack-dev libatlas-base-dev gfortran libfreetype6-dev libpng12-dev && \
+RUN apt-get build-dep -y python python-scipy python-matplotlib cython && \
   easy_install -U distribute && \
   pip install -U Cython && \
   pip install numpy scipy pandas matplotlib scikit-learn && \
