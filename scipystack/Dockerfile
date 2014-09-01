@@ -10,6 +10,7 @@ RUN apt-get build-dep -y python python-scipy python-matplotlib cython && \
   pip install statsmodels && \
   pip install seaborn && \
   pip install yt && \
+  pip install sympy && \
   apt-get clean -y
 
 # Extremely basic test of install
