@@ -1,6 +1,7 @@
 Relies on `ipython/base`, installs the [SciPy stack](http://www.scipy.org/stackspec.html) + more:
 
 * cython
+* h5py
 * matplotlib
 * numpy
 * pandas
@@ -9,4 +10,5 @@ Relies on `ipython/base`, installs the [SciPy stack](http://www.scipy.org/stacks
 * scipy
 * seaborn
 * statsmodels
+* sympy
 * yt

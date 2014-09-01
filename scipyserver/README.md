@@ -1,7 +1,7 @@
 Dockerized Notebook + SciPy Stack
 =================================
 
-Docker container for the SciPy stack and configured IPython notebook server.
+Docker container for the [SciPy stack](../scipystack) and configured IPython notebook server.
 
 ## Quickstart
 
