@@ -11,6 +11,7 @@ RUN apt-get build-dep -y python python-scipy python-matplotlib cython && \
   pip install seaborn && \
   pip install yt && \
   pip install sympy && \
+  pip install h5py && \
   apt-get clean -y
 
 # Extremely basic test of install
