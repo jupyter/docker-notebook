@@ -9,6 +9,5 @@ Relies on `ipython/base`, installs the [SciPy stack](http://www.scipy.org/stacks
 * scikit-learn
 * scipy
 * seaborn
-* statsmodels
 * sympy
 * yt

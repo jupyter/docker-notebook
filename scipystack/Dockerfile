@@ -2,20 +2,17 @@ FROM ipython/base
 
 MAINTAINER IPython Project <ipython-dev@scipy.org>
 
-RUN apt-get build-dep -y python3 python3-numpy python3-scipy python3-matplotlib cython3 python3-h5py && \
-  apt-get install -y build-essential python3-dev && \
-  pip3 install -U Cython && \
-  pip3 install numpy scipy && \
-  pip3 install pandas scikit-learn
+# From https://github.com/ogrisel/docker-openblas
+ADD https://raw.githubusercontent.com/ogrisel/docker-openblas/master/openblas.conf /etc/ld.so.conf.d/openblas.conf
 
-RUN pip3 install matplotlib && \
-  pip3 install patsy && \
-  pip3 install statsmodels && \
-  pip3 install seaborn && \
-  pip3 install yt && \
-  pip3 install sympy && \
-  pip3 install h5py
+# From https://github.com/ogrisel/docker-sklearn-openblas
+ADD https://raw.githubusercontent.com/ogrisel/docker-sklearn-openblas/master/numpy-site.cfg numpy-site.cfg
+ADD https://raw.githubusercontent.com/ogrisel/docker-sklearn-openblas/master/scipy-site.cfg scipy-site.cfg
+ADD https://raw.githubusercontent.com/ogrisel/docker-sklearn-openblas/master/build_sklearn.sh build_sklearn.sh
 
-# Extremely basic test of install
+ADD build_scipy_stack.sh build_scipy_stack.sh
+RUN bash build_scipy_stack.sh
+
+## Extremely basic test of install
 RUN python3 -c "import matplotlib, scipy, numpy, pandas"
-RUN python3 -c "import sklearn, seaborn, statsmodels, yt, patsy, sympy"
+RUN python3 -c "import sklearn, seaborn, yt, patsy, sympy"
