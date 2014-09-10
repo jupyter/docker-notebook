@@ -21,3 +21,16 @@ Clone this repository, make changes then build the container:
 docker build -t scipyserver .
 docker run -d -p 8888:8888 -e "PASSWORD=MakeAPassword" scipyserver
 ```
+
+## Use your own certificate
+IPython notebook looks for /key.pem, if it doesn't exists a self signed certificate will be made. If you would like to use your own certificate, concaticate your private and public key along with possible intermediate certificates in a pem file. The order should be (top to bottom): key, certificate, intermediate certificate.
+
+Ex:
+```
+cat hostname.key hostname.pub.cert intermidiate.cert > hostname.pem
+```
+
+Then you would mount this file to the docker container:
+```
+docker run -v /path/to/hostname.pem:/key.pem ipython/scipyserver
+```
