@@ -41,6 +41,7 @@ for PYTHONVER in 2 3 ; do
   (cd numpy && $PYTHON setup.py install)
   (cd scipy && $PYTHON setup.py install)
   
+  # The rest of the SciPy Stack
   $PIP install cython
   $PIP install pandas scikit-learn
   $PIP install matplotlib

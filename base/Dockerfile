@@ -23,3 +23,4 @@ RUN apt-get install -y -q build-essential make gcc zlib1g-dev git python3 python
 RUN apt-get install -y -q python python-dev python-pip
 
 RUN pip3 install ipython[all]
+RUN pip2 install ipython[all]
