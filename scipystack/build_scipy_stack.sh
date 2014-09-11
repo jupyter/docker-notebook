@@ -23,25 +23,33 @@ ldconfig
 # System dependencies
 apt-get build-dep -y python3 python3-numpy python3-scipy python3-matplotlib cython3 python3-h5py
 apt-get install -y build-essential python3-dev
-curl https://bootstrap.pypa.io/get-pip.py | python3
-pip3 install cython
 
-# Build NumPy and SciPy from source against OpenBLAS installed
 git clone -q --branch=v1.9.0 git://github.com/numpy/numpy.git
 cp /numpy-site.cfg numpy/site.cfg
-(cd numpy && python3 setup.py install)
 
 git clone -q --branch=v0.14.0 git://github.com/scipy/scipy.git
 cp /scipy-site.cfg scipy/site.cfg
-(cd scipy && python3 setup.py install)
 
-pip3 install pandas scikit-learn
-pip3 install matplotlib
-pip3 install seaborn
-pip3 install h5py
-pip3 install yt
-pip3 install sympy
-pip3 install patsy
+curl https://bootstrap.pypa.io/get-pip.py | python2
+curl https://bootstrap.pypa.io/get-pip.py | python3
+
+for PYTHONVER in 2 3 ; do
+  PYTHON="python$PYTHONVER"
+  PIP="pip$PYTHONVER"
+
+  # Build NumPy and SciPy from source against OpenBLAS installed
+  (cd numpy && $PYTHON setup.py install)
+  (cd scipy && $PYTHON setup.py install)
+  
+  $PIP install cython
+  $PIP install pandas scikit-learn
+  $PIP install matplotlib
+  $PIP install seaborn
+  $PIP install h5py
+  $PIP install yt
+  $PIP install sympy
+  $PIP install patsy
+done
 
 # Reduce the image size
 apt-get autoremove -y

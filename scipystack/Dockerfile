@@ -13,5 +13,5 @@ ADD build_scipy_stack.sh build_scipy_stack.sh
 RUN bash build_scipy_stack.sh
 
 ## Extremely basic test of install
-RUN python3 -c "import matplotlib, scipy, numpy, pandas"
-RUN python3 -c "import sklearn, seaborn, yt, patsy, sympy"
+#RUN python2 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, patsy, sympy, IPython, statsmodels"
+#RUN python3 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, patsy, sympy, IPython"
