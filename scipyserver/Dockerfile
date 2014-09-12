@@ -16,7 +16,7 @@ ENV USER jupyter
 WORKDIR /home/jupyter/
 
 # You can mount your own SSL certs as necessary here
-ENV PEM_FILE ~/key.pem
+ENV PEM_FILE /home/jupyter/key.pem
 
 # $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash
 ENV PASSWORD DontKeepTheDefault
