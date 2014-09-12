@@ -22,5 +22,12 @@ RUN apt-get install -y -q build-essential make gcc zlib1g-dev git python3 python
 # Install Python 2.x as well
 RUN apt-get install -y -q python python-dev python-pip
 
+# Install IPython for Python 3 and 2
+# Let IPython for Python 2 win as the default `ipython`
 RUN pip3 install ipython[all]
 RUN pip2 install ipython[all]
+
+# Register each kernel
+# This will be applied when IPython 3.0 comes out
+#RUN ipython2 kernelspec install-self
+#RUN ipython3 kernelspec install-self
