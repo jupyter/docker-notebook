@@ -15,3 +15,6 @@ RUN bash build_scipy_stack.sh
 ## Extremely basic test of install
 RUN python2 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, patsy, sympy, IPython, statsmodels"
 RUN python3 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, patsy, sympy, IPython"
+
+# Clean up from build
+RUN rm -f /build_scipy_stack.sh /numpy-site.cfg /scipy-site.cfg
