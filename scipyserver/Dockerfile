@@ -2,17 +2,25 @@ FROM ipython/scipystack
 
 MAINTAINER IPython Project <ipython-dev@scipy.org>
 
-VOLUME /notebooks
-WORKDIR /notebooks
+ADD notebook.sh /usr/local/bin/notebook.sh
+
+RUN chmod a+rx /usr/local/bin/notebook.sh
+
+RUN useradd -m -s /bin/bash jupyter
+
+USER jupyter
+ENV HOME /home/jupyter
+ENV SHELL /bin/bash
+ENV USER jupyter
+
+WORKDIR /home/jupyter/
+
+# You can mount your own SSL certs as necessary here
+ENV PEM_FILE ~/key.pem
+
+# $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash
+ENV PASSWORD DontKeepTheDefault
 
 EXPOSE 8888
 
-# You can mount your own SSL certs as necessary here
-ENV PEM_FILE /key.pem
-# $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash
-ENV PASSWORD Dont make this your default
-
-ADD notebook.sh /
-RUN chmod u+x /notebook.sh
-
-CMD ["/notebook.sh"]
+CMD ["/usr/local/bin/notebook.sh"]
