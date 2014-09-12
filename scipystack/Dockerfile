@@ -1,18 +1,20 @@
 FROM ipython/base
 
 MAINTAINER IPython Project <ipython-dev@scipy.org>
- 
-RUN apt-get build-dep -y python python-scipy python-matplotlib cython python-h5py && \
-  easy_install -U distribute && \
-  pip install -U Cython && \
-  pip install numpy scipy pandas matplotlib scikit-learn && \
-  pip install patsy && \
-  pip install statsmodels && \
-  pip install seaborn && \
-  pip install yt && \
-  pip install sympy && \
-  pip install h5py
 
-# Extremely basic test of install
-RUN python -c "import matplotlib, scipy, numpy, pandas"
-RUN python -c "import sklearn, seaborn, statsmodels, yt, patsy, sympy"
+# From https://github.com/ogrisel/docker-openblas
+ADD openblas.conf /etc/ld.so.conf.d/openblas.conf
+
+# From https://github.com/ogrisel/docker-sklearn-openblas
+ADD numpy-site.cfg numpy-site.cfg
+ADD scipy-site.cfg scipy-site.cfg
+
+ADD build_scipy_stack.sh build_scipy_stack.sh
+RUN bash build_scipy_stack.sh
+
+## Extremely basic test of install
+RUN python2 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, patsy, sympy, IPython, statsmodels"
+RUN python3 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, patsy, sympy, IPython"
+
+# Clean up from build
+RUN rm -f /build_scipy_stack.sh /numpy-site.cfg /scipy-site.cfg
