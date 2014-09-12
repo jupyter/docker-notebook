@@ -52,6 +52,9 @@ for PYTHONVER in 2 3 ; do
   $PIP install patsy
 done
 
+# Only Python 2 gets statsmodels until their next release
+pip2 install statsmodels
+
 # Reduce the image size
 apt-get autoremove -y
 apt-get clean -y
