@@ -1,4 +1,4 @@
-FROM ipython/base
+FROM ipython/scipystack
 
 MAINTAINER Massimo Di Stefano <epiesasha@me.com>
 
