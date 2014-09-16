@@ -17,8 +17,8 @@ RUN apt-get upgrade -y
 #RUN dpkg-reconfigure locales
 
 # Python binary dependencies, developer tools
-RUN apt-get install -y -q build-essential make gcc zlib1g-dev git python3 python3-dev python3-pip && \
-    apt-get install -y -q libzmq3-dev sqlite3 libsqlite3-dev pandoc libcurl4-openssl-dev nodejs
+RUN apt-get install -y build-essential make gcc zlib1g-dev git python3 python3-dev python3-pip
+RUN apt-get install -y libzmq3-dev sqlite3 libsqlite3-dev pandoc libcurl4-openssl-dev nodejs
 
 # Install Python 2.x as well
 RUN apt-get install -y -q python python-dev python-pip
