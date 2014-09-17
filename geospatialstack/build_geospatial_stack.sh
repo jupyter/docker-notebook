@@ -25,29 +25,30 @@ apt-get build-dep -y gdal
 apt-get install -y wget subversion libspatialindex-dev
 
 PREFIX="/usr"
+GDAL_PREFIX="/opt/gdal"
 wget --no-check-certificate -c --progress=dot:mega http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz
 tar -zxf gdal-1.11.0.tar.gz
 cd gdal-1.11.0
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
 #--with-pg=$PREFIX/bin/pg_config
-CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PYTHON --with-pg=$PREFIX/bin/pg_config --prefix=$PREFIX/ --with-netcdf=$PREFIX/
+CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PYTHON --with-pg=$PREFIX/bin/pg_config --prefix=$GDAL_PREFIX/ --with-netcdf=$PREFIX/
 make -j $np
 make install
 make distclean > /dev/null 2>&1
 done
 cd ..
 
-
+GRIB_PREFIX=/opt/grib
 wget --no-check-certificate https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.9.16.tar.gz
 tar -xvf grib_api-1.9.16.tar.gz
 cd grib_api-1.9.16
 export CFLAGS="-O2 -fPIC"
-./configure --enable-python
+./configure --enable-python --prefix=$GRIB_PREFIX
 make
 sudo make install
 
-echo /usr/local/lib/python2.7/site-packages/grib_api > gribapi.pth
+echo /opt/grib/lib/python2.7/site-packages/grib_api > gribapi.pth
 sudo cp gribapi.pth /usr/local/lib/python2.7/dist-packages/
 
 #echo /usr/local/lib/python3.4/site-packages/grib_api > gribapi.pth
@@ -93,7 +94,7 @@ wget --no-check-certificate -c --progress=dot:mega http://softlayer-dal.dl.sourc
 tar -zxf basemap-1.0.7.tar.gz
 cd basemap-1.0.7
 cd geos-3.3.3
-export GEOS_DIR=$PREFIX/local/geos
+export GEOS_DIR=/opt/geos
 ./configure --prefix=$GEOS_DIR
 make -j $np
 make install
