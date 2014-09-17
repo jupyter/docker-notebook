@@ -4,7 +4,6 @@ MAINTAINER Massimo Di Stefano <epiesasha@me.com>
 
 ADD build_geospatial_stack.sh build_geospatial_stack.sh
 RUN bash build_geospatial_stack.sh
-ADD grassmakefile.patch grassmakefile.patch
 
 ## Extremely basic test of install
 RUN python2 -c "import pyproj, shapely, fiona, geopandas, mplexporter, mplleaflet, geojson, mpl_toolkits.basemap, netCDF4"
