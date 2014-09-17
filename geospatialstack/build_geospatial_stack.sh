@@ -37,8 +37,6 @@ make install
 make distclean > /dev/null 2>&1
 done
 cd ..
-rm -rf gdal-1.11.0.tar.gz
-rm -rf gdal-1.11.0
 
 
 wget --no-check-certificate https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.9.16.tar.gz
@@ -56,9 +54,6 @@ sudo cp gribapi.pth /usr/local/lib/python2.7/dist-packages/
 #sudo cp gribapi.pth /usr/local/lib/python3.4/dist-packages/
 
 cd ..
-rm -rf grib_api-1.9.16.tar.gz
-rm -rf grib_api-1.9.16
- 
 
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
