@@ -107,7 +107,6 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U git+https://github.com/Toblerity/Fiona
   $PIP install -U git+https://github.com/geopandas/geopandas
   $PIP install -U git+https://github.com/mpld3/mplexporter
-  $PIP install -U git+https://github.com/jwass/mplleaflet
   $PIP install -U geojson
   $PIP install -U mock
   $PIP install -U pyshp
@@ -125,6 +124,7 @@ for PYTHONVER in 2 3 ; do
 done
 
 pip2 install -U pysal
+PIP2 install -U git+https://github.com/jwass/mplleaflet
 
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
 cd netcdf4-python
