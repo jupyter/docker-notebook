@@ -24,7 +24,7 @@ ldconfig
 
 # System dependencies
 apt-get build-dep -y gdal
-apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev
+apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev libopenjpeg6-dev libwebp-dev libarmadillo-dev
 
 PREFIX="/usr"
 
@@ -115,6 +115,14 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U numexpr
   export HDF5_DIR=$PREFIX/
   $PIP install -U tables
+  $PIP install -U pysal
+  #$PIP install -U rtree
+  $PIP install -U git+https://github.com/astropy/astropy
+  #$PIP install -U descartes
+  #$PIP install -U geopy
+  $PIP install -U pyopengl
+  $PIP install -U pillow
+  $PIP install -U git+https://github.com/spectralpython/spectral.git
 done
 
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
@@ -128,6 +136,7 @@ for PYTHONVER in 2 3 ; do
 done
 
 
+# ned to add the notebook js xtension
 
 echo "installing grass"
 apt-get build-dep -y grass
