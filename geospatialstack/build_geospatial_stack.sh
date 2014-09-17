@@ -94,6 +94,8 @@ for PYTHONVER in 2 3 ; do
 done
 cd ..
 
+export PATH=/opt/gdal/bin:$PATH
+
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
   PIP="pip$PYTHONVER"
