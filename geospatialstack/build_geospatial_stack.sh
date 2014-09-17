@@ -24,7 +24,7 @@ ldconfig
 
 # System dependencies
 apt-get build-dep -y gdal
-apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev libopenjpeg6-dev libwebp-dev libarmadillo-dev
+apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev libopenjpeg-dev libwebp-dev libarmadillo-dev
 
 PREFIX="/usr"
 
