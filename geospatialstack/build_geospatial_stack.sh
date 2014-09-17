@@ -115,7 +115,6 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U numexpr
   export HDF5_DIR=$PREFIX/
   $PIP install -U tables
-  $PIP install -U pysal
   #$PIP install -U rtree
   $PIP install -U git+https://github.com/astropy/astropy
   #$PIP install -U descartes
@@ -124,6 +123,8 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U pillow
   $PIP install -U git+https://github.com/spectralpython/spectral.git
 done
+
+pip2 install -U pysal
 
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
 cd netcdf4-python
