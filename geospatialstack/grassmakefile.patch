@@ -1,0 +1,10 @@
+--- Makefile	2014-06-28 16:01:43.119354407 +0200
++++ Makefile.mine	2014-09-17 19:43:51.408283936 +0200
+@@ -41,7 +41,6 @@
+ 	scripts \
+ 	temporal \
+ 	doc \
+-	gui \
+ 	visualization \
+ 	locale \
+ 	man \
