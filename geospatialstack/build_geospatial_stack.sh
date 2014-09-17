@@ -22,7 +22,7 @@ ldconfig
 
 # System dependencies
 apt-get build-dep -y gdal
-apt-get install -y wget subversion
+apt-get install -y wget subversion libspatialindex-dev
 
 PREFIX="/usr"
 wget --no-check-certificate -c --progress=dot:mega http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz
@@ -36,25 +36,47 @@ make -j $np
 make install
 make distclean > /dev/null 2>&1
 done
+cd ..
+rm -rf gdal-1.11.0.tar.gz
+rm -rf gdal-1.11.0
 
+
+wget --no-check-certificate https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.9.16.tar.gz
+tar -xvf grib_api-1.9.16.tar.gz
+cd grib_api-1.9.16
+export CFLAGS="-O2 -fPIC"
+./configure --enable-python
+make
+sudo make install
+
+echo /usr/local/lib/python2.7/site-packages/grib_api > gribapi.pth
+sudo cp gribapi.pth /usr/local/lib/python2.7/dist-packages/
+
+#echo /usr/local/lib/python3.4/site-packages/grib_api > gribapi.pth
+#sudo cp gribapi.pth /usr/local/lib/python3.4/dist-packages/
+
+cd ..
+rm -rf grib_api-1.9.16.tar.gz
+rm -rf grib_api-1.9.16
+ 
 
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
   PIP="pip$PYTHONVER"
 
-  # Build NumPy and SciPy from source against OpenBLAS installed
-  (cd numpy && $PYTHON setup.py install)
-  (cd scipy && $PYTHON setup.py install)
-  
-  # The rest of the SciPy Stack
-  $PIP install pyproj
-  $PIP install shapely 
-  $PIP install fiona
-  $PIP install geopandas
-  $PIP install mplexporter
-  $PIP install mplleaflet
-  $PIP install geojson
-  $PIP install patsy
+  # A first Stack of geospatial libraries
+  $PIP install -U setuptools
+  $PIP install -U pyproj
+  $PIP install -U git+https://github.com/Toblerity/Shapely 
+  $PIP install -U git+https://github.com/Toblerity/Fiona
+  $PIP install -U git+https://github.com/geopandas/geopandas
+  $PIP install -U git+https://github.com/mpld3/mplexporter
+  $PIP install -U git+https://github.com/jwass/mplleaflet
+  $PIP install -U geojson
+  $PIP install -U patsy
+  $PIP install -U mock
+  $PIP install -U pyshp
+  $PIP install -U git+https://github.com/SciTools/cartopy
 done
 
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
@@ -67,8 +89,26 @@ for PYTHONVER in 2 3 ; do
   rm -rf build
 done
 
-# todo
+# to  do
 #mpl_toolkits.basemap 
+
+echo "installing geos & basemap"
+wget --no-check-certificate -c --progress=dot:mega http://softlayer-dal.dl.sourceforge.net/project/matplotlib/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
+tar -zxf basemap-1.0.7.tar.gz
+cd basemap-1.0.7
+cd geos-3.3.3
+export GEOS_DIR=$PREFIX/local/geos
+./configure --prefix=$GEOS_DIR
+make -j $np
+make install
+make distclean > /dev/null 2>&1
+cd ..
+for PYTHONVER in 2 3 ; do
+  PYTHON="python$PYTHONVER"
+  $PYTHON setup.py install
+  rm -rf build
+done
+
 
 # Reduce the image size
 apt-get autoremove -y
