@@ -2,7 +2,7 @@ FROM ipython/scipystack
 
 MAINTAINER Massimo Di Stefano <epiesasha@me.com>
 
-ADD bash build_geospatial_stack.sh bash build_geospatial_stack.sh
+ADD build_geospatial_stack.sh bash build_geospatial_stack.sh
 RUN bash build_geospatial_stack.sh
 
 ## Extremely basic test of install
