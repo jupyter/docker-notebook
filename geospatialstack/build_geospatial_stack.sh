@@ -143,6 +143,10 @@ echo "installing grass"
 apt-get build-dep -y grass
 svn -q checkout https://svn.osgeo.org/grass/grass/trunk grass7_trunk
 cd grass7_trunk 
+
+mv ../grassmakefile.patch .
+patch < grassmakefile.patch
+
 #LD_LIBRARY_PATH=$PREFIX/lib/ CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --with-freetype-includes=/usr/include/freetype2/ --with-geos=$PREFIX/bin/geos-config --with-netcdf=$PREFIX/bin/nc-config --with-proj-data=$PREFIX/share/proj/ --with-postgres=yes --with-sqlite --with-pthread --with-readline --with-lapack --with-blas --with-proj-includes=$PREFIX/include --with-proj-data=$PREFIX/share/ --prefix=$PREFIX
 #export LD_LIBRARY_PATH=$PREFIX/lib/
 # --with-postgres=yes --with-postgres-includes=$PREFIX/include/ --with-postgres-libs=$PREFIX/lib
