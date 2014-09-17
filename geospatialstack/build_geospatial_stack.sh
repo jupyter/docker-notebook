@@ -87,7 +87,7 @@ cd gdal-1.11.0
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
   #--with-pg=$PREFIX/bin/pg_config
-  CPPFLAGS=-I$PREFIX/include ./configure --with-spatialite=/opt/libspatialite --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=/opt/geos/bin/geos-config --with-spatialite=/opt/libspatialite --with-freexl=/opt/freexl --with-python=$PYTHON --prefix=$GDAL_PREFIX/ --with-netcdf=$PREFIX/
+  CPPFLAGS=-I$PREFIX/include ./configure --with-spatialite=/opt/libspatialite --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=/usr/bin/geos-config --with-spatialite=/opt/libspatialite --with-freexl=/opt/freexl --with-python=$PYTHON --prefix=$GDAL_PREFIX/ --with-netcdf=$PREFIX/
   make -j $np
   make install
   make distclean > /dev/null 2>&1
