@@ -31,7 +31,7 @@ cd gdal-1.11.0
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
 #--with-pg=$PREFIX/bin/pg_config
-CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-hdf4=/usr --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PYTHON --with-pg=$PREFIX/bin/pg_config --prefix=$PREFIX/ --with-netcdf=$PREFIX/
+CPPFLAGS=-I$PREFIX/include ./configure --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=$PREFIX/bin/geos-config --with-spatialite=$PREFIX/ --with-freexl=$PREFIX/ --with-python=$PYTHON --with-pg=$PREFIX/bin/pg_config --prefix=$PREFIX/ --with-netcdf=$PREFIX/
 make -j $np
 make install
 make distclean > /dev/null 2>&1
@@ -68,10 +68,11 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U git+https://github.com/mpld3/mplexporter
   $PIP install -U git+https://github.com/jwass/mplleaflet
   $PIP install -U geojson
-  $PIP install -U patsy
   $PIP install -U mock
   $PIP install -U pyshp
   $PIP install -U git+https://github.com/SciTools/cartopy
+  export HDF5_DIR=$PREFIX/
+  $PIP install -U tables
 done
 
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
@@ -103,6 +104,8 @@ for PYTHONVER in 2 3 ; do
   $PYTHON setup.py install
   rm -rf build
 done
+
+
 
 
 # Reduce the image size
