@@ -57,8 +57,8 @@ make install
 
 echo "installing libspatialite"
 wget --no-check-certificate -c --progress=dot:mega http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.2.0.tar.gz
-tar -zxf libspatialite-4.1.1.tar.gz
-cd libspatialite-4.1.1
+tar -zxf libspatialite-4.2.0.tar.gz
+cd libspatialite-4.2.0
 CPPFLAGS=-I$/opt/freexl/include/ LDFLAGS=-L$/opt/freexl/lib ./configure --with-geosconfig=/opt/geos/bin/geos-config --prefix=/opt/libspatialite
 make -j $np
 make install
