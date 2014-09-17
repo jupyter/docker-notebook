@@ -112,6 +112,7 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U mock
   $PIP install -U pyshp
   $PIP install -U git+https://github.com/SciTools/cartopy
+  $PIP install -U numexpr
   export HDF5_DIR=$PREFIX/
   $PIP install -U tables
 done
