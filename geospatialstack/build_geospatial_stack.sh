@@ -124,7 +124,7 @@ for PYTHONVER in 2 3 ; do
 done
 
 pip2 install -U pysal
-PIP2 install -U git+https://github.com/jwass/mplleaflet
+pip2 install -U git+https://github.com/jwass/mplleaflet
 
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
 cd netcdf4-python
