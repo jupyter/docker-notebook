@@ -18,7 +18,7 @@ PATH="\$PATH:/usr/lib/gmt/bin"
 export PATH
 EOF
 
-apt-get --assume-yes install libjs-leaflet
+apt-get --assume-yes install libjs-leaflet mlocate
 #add-apt-repository --yes --remove ppa:johanvdw/leafletjs
 
 ln -s /usr/share/javascript/leaflet/ /var/www/html/leaflet
