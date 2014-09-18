@@ -88,5 +88,5 @@ cd ..
 ln -sf build/OpenLayers.js
 
 mkdir -p /var/www/html/openlayers
-cp -R openlayers/* /var/www/html/openlayers/
+cp -R openlayers /var/www/html/
 chmod -R uga+r /var/www/html/openlayers
