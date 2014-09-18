@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-
+'''
 export LD_LIBRARY_PATH=/opt/grass/grass-7.1.svn/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=/opt/grass/grass-7.1.svn/etc/python:$PYTHONPATH
 export GISBASE=/opt/grass/grass-7.1.svn/
@@ -20,7 +20,7 @@ export GRASS_PNG_AUTO_WRITE=TRUE
 mkdir -p /notebooks/.ipython/nbextensions/
 ln -s /var/www/html/openlayers/ /notebooks/.ipython/nbextensions/
 ln -s /usr/share/javascript/leaflet/ /notebooks/.ipython/nbextensions/
-
+'''
 
 # Strict mode
 set -euo pipefail
