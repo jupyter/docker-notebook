@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-'''
+
 export LD_LIBRARY_PATH=/opt/grass/grass-7.1.svn/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=/opt/grass/grass-7.1.svn/etc/python:$PYTHONPATH
 export GISBASE=/opt/grass/grass-7.1.svn/
@@ -20,7 +20,7 @@ export GRASS_PNG_AUTO_WRITE=TRUE
 mkdir -p /notebooks/.ipython/nbextensions/
 ln -s /var/www/html/openlayers/ /notebooks/.ipython/nbextensions/
 ln -s /usr/share/javascript/leaflet/ /notebooks/.ipython/nbextensions/
-'''
+
 
 # Strict mode
 set -euo pipefail
@@ -37,6 +37,7 @@ fi
 HASH=$(python3 -c "from IPython.lib import passwd; print(passwd('${PASSWORD}'))")
 unset PASSWORD
 
-#--ipython-dir=/notebooks/.ipython --notebook-dir=/notebooks/ --certfile=$PEM_FILE
+# when trying with user:jupiter i removed this line (trying to fix the start problem when using a nonroot user, but no luck):
+# --ipython-dir=/notebooks/.ipython --notebook-dir=/notebooks/ --certfile=$PEM_FILE
 
-ipython2 notebook --no-browser --port 8888 --ip=* --NotebookApp.password="$HASH"
+ipython2 notebook --no-browser --port 8888 --ip=* --NotebookApp.password="$HASH" --ipython-dir=/notebooks/.ipython --notebook-dir=/notebooks/ --certfile=$PEM_FILE
