@@ -13,7 +13,11 @@ geospatialstack: scipystack geospatialstack/Dockerfile
 		docker build -t ipython/geospatialstack geospatialstack
 
 
-scipyserver: geospatialstack scipyserver/Dockerfile
+scipyserver: scipystack scipyserver/Dockerfile
 		docker build -t ipython/scipyserver scipyserver
 
-.PHONY: base scipystack geospatialstack scipyserver notebook
+geospatialserver: geospatialstack geospatialserver/Dockerfile
+		docker build -t ipython/geospatialserver geospatialserver
+
+.PHONY: base scipystack geospatialstack scipyserver geospatialserver notebook
+
