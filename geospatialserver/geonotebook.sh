@@ -16,26 +16,6 @@ HASH=$(python3 -c "from IPython.lib import passwd; print(passwd('${PASSWORD}'))"
 unset PASSWORD
 
 
-PREFIX=/opt/
 
-
-export LD_LIBRARY_PATH=$PREFIX/grass-7.0.svn/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$PREFIX/grass-7.0.svn/etc/python:$PYTHONPATH
-export GISBASE=$PREFIX/grass-7.0.svn/
-export PATH=$PATH:$GISBASE/bin:$GISBASE/scripts
-
-export GIS_LOCK=$$
-
-mkdir -p /home/$USER/grass7data
-mkdir -p /home/$USER/.grass7
-
-export GISRC=/home/$USER/.grass7/rc
-
-export GISDBASE=/home/$USER/grass7data
-
-export GRASS_TRANSPARENT=TRUE
-export GRASS_TRUECOLOR=TRUE
-export GRASS_PNG_COMPRESSION=9
-export GRASS_PNG_AUTO_WRITE=TRUE
 
 ipython2 notebook --no-browser --port 8888 --ip=* --certfile=$PEM_FILE --NotebookApp.password="$HASH"
