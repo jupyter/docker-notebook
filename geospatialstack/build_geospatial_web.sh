@@ -60,19 +60,14 @@ EOF
 a2enconf $MS_APACHE_CONF_FILE
 echo "Finished configuring Apache"
 
-
-OL_VERSION="2.13.1"
-
-GIT_DIR="openlayers-$OL_VERSION"
-
 echo "\nFetching git clone..."
-if [ ! -d "$GIT_DIR" ] ; then
-    git clone https://github.com/openlayers/openlayers.git "$GIT_DIR"
+if [ ! -d "openlayers" ] ; then
+    git clone https://github.com/openlayers/openlayers.git
 else
-    echo "... openLayers-$OL_VERSION already cloned"
+    echo "... openLayers already cloned"
 fi
 
-cd "$GIT_DIR"
+cd openlayers
 
 echo "\nBuilding examples index"
 if [ ! -s examples/example-list.js ] ; then
@@ -93,5 +88,5 @@ cd ..
 ln -sf build/OpenLayers.js
 
 mkdir -p /var/www/html/openlayers
-cp -R "$GIT_DIR"/* /var/www/html/openlayers/
+cp -R openlayers/* /var/www/html/openlayers/
 chmod -R uga+r /var/www/html/openlayers
