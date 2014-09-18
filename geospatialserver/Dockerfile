@@ -12,6 +12,10 @@ ENV PEM_FILE /key.pem
 # $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash
 ENV PASSWORD Dont make this your default
 
+
+ADD geonotebook.sh /usr/local/bin/geonotebook.sh
+RUN chmod a+x /usr/local/bin/geonotebook.sh
+
 RUN useradd -m -s /bin/bash jupyter
 
 USER jupyter
@@ -21,11 +25,4 @@ ENV USER jupyter
 
 WORKDIR /home/jupyter/
 
-#ENTRYPOINT ["/usr/local/bin/notebook.sh"]
-
-ADD geonotebook.sh /
-RUN chmod u+x /geonotebook.sh
-
-CMD ["/geonotebook.sh"]
-
-
+ENTRYPOINT ["/usr/local/bin/geonotebook.sh"]
