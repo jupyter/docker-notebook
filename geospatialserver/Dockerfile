@@ -16,11 +16,3 @@ ADD geonotebook.sh /
 RUN chmod u+x /geonotebook.sh
 
 CMD ["/geonotebook.sh"]
-
-
-RUN useradd -m -s /bin/bash jupyter
-
-USER jupyter
-ENV HOME /home/jupyter
-ENV SHELL /bin/bash
-ENV USER jupyter
