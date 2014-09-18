@@ -33,7 +33,7 @@ ENV USER jupyter
 
 WORKDIR /home/jupyter/
 
-ADD Welcome.ipynb /home/jupyter/
-RUN cp -r /srv/ipython/examples /home/jupyter/examples
+#ADD Welcome.ipynb /home/jupyter/
+#RUN cp -r /srv/ipython/examples /home/jupyter/examples
 
 CMD ["/usr/local/bin/geonotebook.sh"]
