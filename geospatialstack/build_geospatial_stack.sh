@@ -84,15 +84,17 @@ GDAL_PREFIX="/opt/gdal"
 wget --no-check-certificate -c --progress=dot:mega http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz
 tar -zxf gdal-1.11.0.tar.gz
 cd gdal-1.11.0
+#--with-pg=$PREFIX/bin/pg_config
+CPPFLAGS=-I$PREFIX/include ./configure --with-spatialite=/opt/libspatialite --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=/opt/geos/bin/geos-config --with-spatialite --with-freexl --prefix=$GDAL_PREFIX/ --with-netcdf=$PREFIX/
+make -j $np
+make install
+cd swig/python
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
-  #--with-pg=$PREFIX/bin/pg_config
-  CPPFLAGS=-I$PREFIX/include ./configure --with-spatialite=/opt/libspatialite --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=/opt/geos/bin/geos-config --with-spatialite --with-freexl --with-python=$PYTHON --prefix=$GDAL_PREFIX/ --with-netcdf=$PREFIX/
-  make -j $np
-  make install
-  make distclean > /dev/null 2>&1
+  $PYTHON setup.py install
+
 done
-cd ..
+cd ../..
 
 export PATH=/opt/gdal/bin:$PATH
 
@@ -119,6 +121,7 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U pyopengl
   $PIP install -U pillow
   $PIP install -U git+https://github.com/spectralpython/spectral.git
+  $PIP install -U git+https://github.com/mapbox/rasterio
 done
 
 pip2 install -U pysal
