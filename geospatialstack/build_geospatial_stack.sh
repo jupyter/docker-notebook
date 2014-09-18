@@ -114,10 +114,8 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U numexpr
   export HDF5_DIR=$PREFIX/
   $PIP install -U tables
-  #$PIP install -U rtree
   $PIP install -U git+https://github.com/astropy/astropy
-  #$PIP install -U descartes
-  #$PIP install -U geopy
+  $PIP install -U geopy
   $PIP install -U pyopengl
   $PIP install -U pillow
   $PIP install -U git+https://github.com/spectralpython/spectral.git
@@ -135,7 +133,6 @@ for PYTHONVER in 2 3 ; do
   $PYTHON setup.py install
   rm -rf build
 done
-
 
 # ned to add the notebook js xtension
 

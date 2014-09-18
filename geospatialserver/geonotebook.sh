@@ -6,15 +6,20 @@ export PYTHONPATH=/opt/grass/grass-7.1.svn/etc/python:$PYTHONPATH
 export GISBASE=/opt/grass/grass-7.1.svn/
 export PATH=$PATH:$GISBASE/bin:$GISBASE/scripts
 export GIS_LOCK=$$
+
 mkdir -p /notebooks/grass7data
 mkdir -p /notebooks/.grass7
+
 export GISRC=/notebooks/.grass7/rc
 export GISDBASE=/notebooks/grass7data
-
 export GRASS_TRANSPARENT=TRUE
 export GRASS_TRUECOLOR=TRUE
 export GRASS_PNG_COMPRESSION=9
 export GRASS_PNG_AUTO_WRITE=TRUE
+# add a symbolic link into the ipython notebook extension directory
+mkdir -p /notebooks/.ipython/nbextensions/
+ln -s /var/www/html/openlayers/ /notebooks/.ipython/nbextensions/
+ln -s /usr/share/javascript/leaflet/ /notebooks/.ipython/nbextensions/
 
 
 # Strict mode
@@ -32,4 +37,4 @@ fi
 HASH=$(python3 -c "from IPython.lib import passwd; print(passwd('${PASSWORD}'))")
 unset PASSWORD
 
-ipython2 notebook --no-browser --port 8888 --ip=* --certfile=$PEM_FILE --NotebookApp.password="$HASH"
+ipython2 notebook --no-browser --port 8888 --ip=* --ipython-dir=/notebooks/.ipython --notebook-dir=/notebooks/ --certfile=$PEM_FILE --NotebookApp.password="$HASH"
