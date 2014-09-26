@@ -1,15 +1,15 @@
-images: base scipyserver notebook scipystack
+images: scipyserver notebook scipystack
 
-base: base/Dockerfile
-		docker build -t ipython/base base
+pull:
+	docker pull ipython/ipython
 
 notebook: notebook/Dockerfile
 		docker build -t ipython/notebook notebook
 
-scipystack: base scipystack/Dockerfile
+scipystack: scipystack/Dockerfile
 		docker build -t ipython/scipystack scipystack
 
 scipyserver: scipystack scipyserver/Dockerfile
 		docker build -t ipython/scipyserver scipyserver
 
-.PHONY: base scipystack scipyserver notebook
+.PHONY: pull scipystack scipyserver notebook
