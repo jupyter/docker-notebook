@@ -25,10 +25,10 @@ apt-get build-dep -y python3 python3-numpy python3-scipy python3-matplotlib cyth
 apt-get install -y build-essential python3-dev
 
 git clone -q --branch=v1.9.0 git://github.com/numpy/numpy.git
-cp /numpy-site.cfg numpy/site.cfg
+cp /tmp/numpy-site.cfg numpy/site.cfg
 
 git clone -q --branch=v0.14.0 git://github.com/scipy/scipy.git
-cp /scipy-site.cfg scipy/site.cfg
+cp /tmp/scipy-site.cfg scipy/site.cfg
 
 curl https://bootstrap.pypa.io/get-pip.py | python2
 curl https://bootstrap.pypa.io/get-pip.py | python3
