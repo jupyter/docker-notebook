@@ -6,10 +6,10 @@ MAINTAINER IPython Project <ipython-dev@scipy.org>
 ADD openblas.conf /etc/ld.so.conf.d/openblas.conf
 
 # From https://github.com/ogrisel/docker-sklearn-openblas
-ADD numpy-site.cfg numpy-site.cfg
-ADD scipy-site.cfg scipy-site.cfg
+ADD numpy-site.cfg /tmp/numpy-site.cfg
+ADD scipy-site.cfg /tmp/scipy-site.cfg
 
-ADD build_scipy_stack.sh build_scipy_stack.sh
+ADD build_scipy_stack.sh /tmp/build_scipy_stack.sh
 RUN bash build_scipy_stack.sh
 
 ## Extremely basic test of install
@@ -17,4 +17,4 @@ RUN python2 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, p
 RUN python3 -c "import matplotlib, scipy, numpy, pandas, sklearn, seaborn, yt, patsy, sympy, IPython"
 
 # Clean up from build
-RUN rm -f /build_scipy_stack.sh /numpy-site.cfg /scipy-site.cfg
+RUN rm -f /tmp/build_scipy_stack.sh /tmp/numpy-site.cfg /tmp/scipy-site.cfg
