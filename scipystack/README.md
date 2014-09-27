@@ -1,4 +1,4 @@
-Relies on `ipython/base`, installs the [SciPy stack](http://www.scipy.org/stackspec.html) + more:
+Relies on `ipython/ipython`, installs the [SciPy stack](http://www.scipy.org/stackspec.html) + more:
 
 * cython
 * h5py

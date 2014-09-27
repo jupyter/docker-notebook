@@ -4,10 +4,9 @@ IPython in Docker
 This repository contains the Dockerfiles and shell scripts used by four Docker
 containers:
 
-* [ipython/base](base) - Base installation of IPython and its dependencies
-* [ipython/scipystack](scipystack) - Relies on `ipython/base`, installs the [scipy stack](http://www.scipy.org/stackspec.html) & more
+* [ipython/scipystack](scipystack) - Relies on `ipython/ipython`, installs the [scipy stack](http://www.scipy.org/stackspec.html) & more
 * [ipython/scipyserver](scipyserver) - Relies on `ipython/scipystack`, sets up a notebook server. See the [README](scipyserver/README.md) for usage instructions.
-* [ipython/notebook](notebook) - Relies on `ipython/base` and *just* sets up the IPython notebook. No additional Python packages are installed by default
+* [ipython/notebook](notebook) - Relies on `ipython/ipython` and *just* sets up the IPython notebook. No additional Python packages are installed by default
 
 In practice though, the most recent versions of [each of these images is up on the Docker Hub](https://registry.hub.docker.com/repos/ipython/).
 
@@ -46,7 +45,7 @@ array([  2.        ,   2.16326531,   2.32653061,   2.48979592,
 
 ### Development
 
-For local development, especially when working across multiple images make sure to tag them as `ipython/base`, `ipython/notebook`, etc. so they can depend on each other rather than upstream. Easy mode is to just use the Makefile:
+For local development, especially when working across multiple images make sure to tag them as `ipython/scipystack`, `ipython/notebook`, etc. so they can depend on each other rather than upstream. Easy mode is to just use the Makefile:
 
 ```
 make images
@@ -55,5 +54,5 @@ make images
 Otherwise, you can do it by hand:
 
 ```
-docker build -t ipython/base base
+docker build -t ipython/scipystack scipystack
 ```
