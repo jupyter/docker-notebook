@@ -22,7 +22,7 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U setuptools
   $PIP install -U pyproj
   $PIP install -U git+https://github.com/Toblerity/Shapely 
-  $PIP install -U git+https://github.com/Toblerity/Fiona
+  #$PIP install -U git+https://github.com/Toblerity/Fiona
   $PIP install -U git+https://github.com/geopandas/geopandas
   $PIP install -U git+https://github.com/mpld3/mplexporter
   $PIP install -U geojson
