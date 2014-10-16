@@ -57,6 +57,7 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U pillow
   $PIP install -U git+https://github.com/spectralpython/spectral.git
   $PIP install -U git+https://github.com/mapbox/rasterio
+  $PIP install -U git+https://github.com/continuumio/bokeh
 done
 
 pip2 install -U pysal
