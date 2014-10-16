@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -xe
-apt-get -y update
+#apt-get -y update
 
 ln -s /usr/bin/nodejs /usr/bin/node
 
