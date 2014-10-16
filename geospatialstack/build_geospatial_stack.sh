@@ -72,7 +72,7 @@ for PYTHONVER in 2 3 ; do
   rm -rf build
 done
 
-apt-get install -y npm
+apt-get install -y node npm
 
 git clone https://github.com/continuumio/bokeh
 cd bokeh/bokehjs
