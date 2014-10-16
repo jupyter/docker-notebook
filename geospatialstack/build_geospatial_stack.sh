@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
 
 set -xe
-
-mkdir -p /tmp/build
-
-cd /tmp/build
-
 apt-get -y update
-
 np=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
 
-ldconfig
+
+
 
 PREFIX="/usr"
-
+mkdir -p /tmp/build
+cd /tmp/build
 
 echo "installing geos & basemap"
 wget --no-check-certificate -c --progress=dot:mega http://softlayer-dal.dl.sourceforge.net/project/matplotlib/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
@@ -59,9 +55,11 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U git+https://github.com/mapbox/rasterio
 done
 
+# build fail for python3
 pip2 install -U pysal
 pip2 install -U git+https://github.com/jwass/mplleaflet
 
+# install latest version for netcdf4-python
 svn checkout http://netcdf4-python.googlecode.com/svn/trunk/ netcdf4-python
 cd netcdf4-python
 export HDF5_DIR=$PREFIX/
@@ -72,16 +70,18 @@ for PYTHONVER in 2 3 ; do
   rm -rf build
 done
 
-apt-get install -y node npm
 
-git clone https://github.com/continuumio/bokeh
-cd bokeh/bokehjs
-npm install
-cd ../
-for PYTHONVER in 2 3 ; do
-    $PYTHON setup.py install --build_js
-  rm -rf build
-done
+# fail to build :(
+#apt-get install -y node npm
+
+#git clone https://github.com/continuumio/bokeh
+#cd bokeh/bokehjs
+#npm install
+#cd ../
+#for PYTHONVER in 2 3 ; do
+#    $PYTHON setup.py install --build_js
+#  rm -rf build
+#done
 
 
 # ned to add the notebook js xtension
