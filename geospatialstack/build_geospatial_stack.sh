@@ -71,17 +71,7 @@ for PYTHONVER in 2 3 ; do
 done
 
 
-# fail to build :(
-#apt-get install -y node npm
 
-#git clone https://github.com/continuumio/bokeh
-#cd bokeh/bokehjs
-#npm install
-#cd ../
-#for PYTHONVER in 2 3 ; do
-#    $PYTHON setup.py install --build_js
-#  rm -rf build
-#done
 
 
 # ned to add the notebook js xtension
