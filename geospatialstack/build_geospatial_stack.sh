@@ -54,3 +54,10 @@ for PYTHONVER in 2 3 ; do
 done
 
 # ned to add the notebook js xtension
+
+# Reduce the image size
+apt-get autoremove -y
+apt-get clean -y
+
+cd /
+rm -rf /tmp/build

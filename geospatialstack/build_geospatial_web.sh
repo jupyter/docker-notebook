@@ -91,3 +91,10 @@ mkdir -p /var/www/html/openlayers
 cd .. 
 cp -R openlayers /var/www/html/
 chmod -R uga+r /var/www/html/openlayers
+
+# Reduce the image size
+apt-get autoremove -y
+apt-get clean -y
+
+cd /
+rm -rf /tmp/build
