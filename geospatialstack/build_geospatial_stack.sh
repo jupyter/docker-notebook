@@ -14,6 +14,25 @@ ldconfig
 
 PREFIX="/usr"
 
+
+echo "installing geos & basemap"
+wget --no-check-certificate -c --progress=dot:mega http://softlayer-dal.dl.sourceforge.net/project/matplotlib/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
+tar -zxf basemap-1.0.7.tar.gz
+cd basemap-1.0.7
+cd geos-3.3.3
+export GEOS_DIR=/opt/geos
+./configure --prefix=$GEOS_DIR
+make -j $np
+make install
+make distclean > /dev/null 2>&1
+cd ..
+for PYTHONVER in 2 3 ; do
+  PYTHON="python$PYTHONVER"
+  $PYTHON setup.py install
+  rm -rf build
+done
+
+
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
   PIP="pip$PYTHONVER"
