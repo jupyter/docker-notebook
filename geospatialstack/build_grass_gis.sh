@@ -2,7 +2,7 @@
 
 set -xe
 
-mkdir /tmp/build
+mkdir -p /tmp/build
 
 cd /tmp/build
 
