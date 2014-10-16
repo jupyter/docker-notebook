@@ -25,7 +25,11 @@ ldconfig
 # System dependencies
 apt-get build-dep -y gdal
 apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev libopenjpeg-dev libwebp-dev libarmadillo-dev
-apt-get install -y gdal-bin dans-gdal-scripts libgdal-dev libgdal-doc python-gdal python3-gdal pktools pktools-dev
+apt-get install -y gdal-bin dans-gdal-scripts libgdal-dev libgdal-doc python-gdal python3-gdal
+
+# not available for trusty:
+# pktools pktools-dev
+
 PREFIX="/usr"
 
 echo "installing geos & basemap"
