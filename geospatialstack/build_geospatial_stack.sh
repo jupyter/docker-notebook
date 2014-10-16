@@ -57,7 +57,6 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U pillow
   $PIP install -U git+https://github.com/spectralpython/spectral.git
   $PIP install -U git+https://github.com/mapbox/rasterio
-  $PIP install -U git+https://github.com/continuumio/bokeh
 done
 
 pip2 install -U pysal
@@ -72,6 +71,17 @@ for PYTHONVER in 2 3 ; do
   $PYTHON setup.py install
   rm -rf build
 done
+
+
+git clone https://github.com/continuumio/bokeh
+cd bokeh/bokehjs
+npm install
+cd ../
+for PYTHONVER in 2 3 ; do
+    $PYTHON setup.py install --build_js
+  rm -rf build
+done
+
 
 # ned to add the notebook js xtension
 
