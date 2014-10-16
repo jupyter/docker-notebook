@@ -25,7 +25,7 @@ ldconfig
 # System dependencies
 apt-get build-dep -y gdal
 apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev libopenjpeg-dev libwebp-dev libarmadillo-dev
-apt-get install -y gdal-bin dans-gdal-scripts libgdal-dev libgdal-doc python-gdal python3-gdal
+apt-get install -y gdal-bin dans-gdal-scripts libgdal-dev libgdal1-dev libgdal-doc python-gdal python3-gdal libgrib-api-dev libgrib-api-tools python-grib python3-grib python-mpltoolkits.basemap libspatialite-dev python-pyspatialite spatialite-bin
 
 # not available for trusty:
 # pktools pktools-dev
@@ -78,6 +78,10 @@ sudo make install
 
 echo /opt/grib/lib/python2.7/site-packages/grib_api > gribapi.pth
 sudo cp gribapi.pth /usr/local/lib/python2.7/dist-packages/
+
+
+
+
 
 #echo /usr/local/lib/python3.4/site-packages/grib_api > gribapi.pth
 #sudo cp gribapi.pth /usr/local/lib/python3.4/dist-packages/
