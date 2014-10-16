@@ -25,7 +25,7 @@ ldconfig
 # System dependencies
 apt-get build-dep -y gdal
 apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev libopenjpeg-dev libwebp-dev libarmadillo-dev
-
+apt-get install -y gdal-bin dans-gdal-scripts libgdal-dev libgdal-doc python-gdal python3-gdal pktools pktools-dev
 PREFIX="/usr"
 
 echo "installing geos & basemap"
@@ -80,23 +80,23 @@ sudo cp gribapi.pth /usr/local/lib/python2.7/dist-packages/
 
 cd ..
 
-GDAL_PREFIX="/opt/gdal"
-wget --no-check-certificate -c --progress=dot:mega http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz
-tar -zxf gdal-1.11.0.tar.gz
-cd gdal-1.11.0
+#GDAL_PREFIX="/opt/gdal"
+#wget --no-check-certificate -c --progress=dot:mega http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz
+#tar -zxf gdal-1.11.0.tar.gz
+#cd gdal-1.11.0
 #--with-pg=$PREFIX/bin/pg_config
-CPPFLAGS=-I$PREFIX/include ./configure --with-spatialite=/opt/libspatialite --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=/opt/geos/bin/geos-config --with-spatialite --with-freexl --prefix=$GDAL_PREFIX/ --with-netcdf=$PREFIX/
-make -j $np
-make install
-cd swig/python
-for PYTHONVER in 2 3 ; do
-  PYTHON="python$PYTHONVER"
-  $PYTHON setup.py install
+#CPPFLAGS=-I$PREFIX/include ./configure --with-spatialite=/opt/libspatialite --with-hdf5=$PREFIX/  --with-hdf4=$PREFIX/ --with-geos=/opt/geos/bin/geos-config --with-spatialite --with-freexl --prefix=$GDAL_PREFIX/ --with-netcdf=$PREFIX/
+#make -j $np
+#make install
+#cd swig/python
+#for PYTHONVER in 2 3 ; do
+#  PYTHON="python$PYTHONVER"
+#  $PYTHON setup.py install
 
-done
-cd ../..
+#done
+#cd ../..
 
-export PATH=/opt/gdal/bin:$PATH
+#export PATH=/opt/gdal/bin:$PATH
 
 for PYTHONVER in 2 3 ; do
   PYTHON="python$PYTHONVER"
