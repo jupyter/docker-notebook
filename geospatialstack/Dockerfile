@@ -19,8 +19,8 @@ ADD build_bokeh.sh build_bokeh.sh
 RUN bash build_bokeh.sh
 
 ## Extremely basic test of install
-RUN python2 -c "import pyproj, shapely, geopandas, mplexporter, mplleaflet, geojson, mpl_toolkits.basemap, netCDF4, mock, shapefile, cartopy, numexpr, tables, astropy, geopy, OpenGL, pillow, spectral, rasterio"
-RUN python3 -c "import pyproj, shapely, geopandas, mplexporter, geojson, mpl_toolkits.basemap, netCDF4, mock, shapefile, cartopy, numexpr, tables, astropy, geopy, OpenGL, pillow, spectral, rasterio"
+RUN python2 -c "import pyproj, shapely, geopandas, mplexporter, mplleaflet, geojson, mpl_toolkits.basemap, netCDF4, mock, shapefile, cartopy, numexpr, tables, astropy, geopy, OpenGL, PIL, spectral, rasterio"
+RUN python3 -c "import pyproj, shapely, geopandas, mplexporter, geojson, mpl_toolkits.basemap, netCDF4, mock, shapefile, cartopy, numexpr, tables, astropy, geopy, OpenGL, PIL, spectral, rasterio"
 
 # Clean up from build
 RUN rm -f /build_geospatial_stack.sh
