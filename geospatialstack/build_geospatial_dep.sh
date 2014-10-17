@@ -13,7 +13,7 @@ apt-get build-dep -y gdal
 apt-get install -y wget subversion libspatialindex-dev libpoppler-dev libpodofo-dev libopenjpeg-dev libwebp-dev libarmadillo-dev
 apt-get install -y gdal-bin dans-gdal-scripts libgdal-dev libgdal1-dev libgdal-doc python-gdal python3-gdal libgrib-api-dev libgrib-api-tools python-grib python3-grib libspatialite-dev python-pyspatialite spatialite-bin
 
-apt-get install -y node npm
+#apt-get install -y node npm
 #ln -s /usr/bin/nodejs /usr/bin/node
 
 # Reduce the image size
