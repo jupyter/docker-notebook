@@ -5,7 +5,7 @@ set -xe
 
 #ln -s /usr/bin/nodejs /usr/bin/node
 
-apt-get install nodejs-legacy npm
+apt-get install -y nodejs-legacy npm
 
 git clone https://github.com/continuumio/bokeh
 cd bokeh/bokehjs
