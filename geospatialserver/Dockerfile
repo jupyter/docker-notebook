@@ -16,25 +16,3 @@ ADD geonotebook.sh /
 RUN chmod u+x /geonotebook.sh
 
 CMD ["/geonotebook.sh"]
-
-
-# using the following the container build but doesn't start
-##EXPOSE 8888
-
-##ADD geonotebook.sh /usr/local/bin/geonotebook.sh
-##RUN chmod a+x /usr/local/bin/geonotebook.sh
-
-# jupyter is our user
-##RUN useradd -m -s /bin/bash jupyter
-
-##USER jupyter
-##ENV HOME /home/jupyter
-##ENV SHELL /bin/bash
-##ENV USER jupyter
-
-##WORKDIR /home/jupyter/
-
-##ADD Welcome.ipynb /home/jupyter/
-##RUN cp -r /srv/ipython/examples /home/jupyter/examples
-
-##CMD ["/usr/local/bin/geonotebook.sh"]
