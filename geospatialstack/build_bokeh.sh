@@ -3,7 +3,7 @@
 set -xe
 #apt-get -y update
 
-ln -s /usr/bin/nodejs /usr/bin/node
+#ln -s /usr/bin/nodejs /usr/bin/node
 
 git clone https://github.com/continuumio/bokeh
 cd bokeh/bokehjs
