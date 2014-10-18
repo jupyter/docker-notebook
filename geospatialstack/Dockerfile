@@ -21,6 +21,9 @@ RUN bash /tmp/build_bokeh.sh
 ADD build_ipython_nb_extension.sh /tmp/build_ipython_nb_extension.sh
 RUN bash /tmp/build_ipython_nb_extension.sh
 
+ADD install_octave.sh /tmp/install_octave.sh
+RUN bash /tmp/install_octave.sh
+
 ## Extremely basic test of install
 RUN python2 -c "import pyproj, shapely, geopandas, mplexporter, mplleaflet, geojson, mpl_toolkits.basemap, netCDF4, mock, shapefile, cartopy, numexpr, tables, astropy, geopy, OpenGL, PIL, spectral, rasterio"
 RUN python3 -c "import pyproj, shapely, geopandas, mplexporter, geojson, mpl_toolkits.basemap, netCDF4, mock, shapefile, cartopy, numexpr, tables, astropy, geopy, OpenGL, PIL, spectral, rasterio"
