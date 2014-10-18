@@ -54,7 +54,7 @@ for PYTHONVER in 2 3 ; do
   $PIP install -U git+https://github.com/spectralpython/spectral.git
   $PIP install -U git+https://github.com/mapbox/rasterio
 done
-
+ß
 # build fail for python3
 pip2 install -U pysal
 pip2 install -U git+https://github.com/jwass/mplleaflet
