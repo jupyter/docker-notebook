@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 
-export LD_LIBRARY_PATH=/opt/grass/grass-7.1.svn/lib:/opt/gdal/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/grass/grass-7.1.svn/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=/opt/grass/grass-7.1.svn/etc/python:$PYTHONPATH
 export GISBASE=/opt/grass/grass-7.1.svn/
 export PATH=$PATH:$GISBASE/bin:$GISBASE/scripts
