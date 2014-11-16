@@ -50,10 +50,9 @@ for PYTHONVER in 2 3 ; do
   $PIP install yt
   $PIP install sympy
   $PIP install patsy
+  $PIP install ggplot
+  $PIP install statsmodels
 done
-
-# Only Python 2 gets statsmodels until their next release
-pip2 install statsmodels
 
 # Reduce the image size
 apt-get autoremove -y
