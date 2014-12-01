@@ -1,0 +1,1 @@
+backend      : module://IPython.kernel.zmq.pylab.backend_inline
