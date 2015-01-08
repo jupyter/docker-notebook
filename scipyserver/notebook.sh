@@ -15,4 +15,10 @@ fi
 HASH=$(python3 -c "from IPython.lib import passwd; print(passwd('${PASSWORD}'))")
 unset PASSWORD
 
-ipython2 notebook --no-browser --port 8888 --ip=* --certfile=$PEM_FILE --NotebookApp.password="$HASH" --matplotlib=inline
+CERTFILE_OPTION="--certfile=$PEM_FILE"
+
+if [ $USE_HTTP -ne 0 ]; then
+  CERTFILE_OPTION=""
+fi
+
+ipython2 notebook --no-browser --port 8888 --ip=* $CERTFILE_OPTION --NotebookApp.password="$HASH" --matplotlib=inline

@@ -34,3 +34,12 @@ Then you would mount this file to the docker container:
 ```
 docker run -v /path/to/hostname.pem:/key.pem -d -p 443:8888 -e "PASSWORD=pass" ipython/scipyserver
 ```
+
+## Using HTTP
+This docker image by default runs IPython notebook in HTTPS.  If you'd like to run this in HTTP,
+you can use the `USE_HTTP` environment variable.  Setting it to a non-zero value enables HTTP.
+
+Example:
+```
+docker run -d -p 80:8888 -e "PASSWORD=MakeAPassword" -e "USE_HTTP=1" ipython/notebook
+```
