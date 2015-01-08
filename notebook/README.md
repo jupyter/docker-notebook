@@ -40,5 +40,5 @@ you can use the `USE_HTTP` environment variable.  Setting it to a non-zero value
 
 Example:
 ```
-docker run -d -p 443:8888 -e "PASSWORD=MakeAPassword" -e "USE_HTTP=1" ipython/notebook
+docker run -d -p 80:8888 -e "PASSWORD=MakeAPassword" -e "USE_HTTP=1" ipython/notebook
 ```
