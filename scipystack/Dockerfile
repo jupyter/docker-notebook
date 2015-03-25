@@ -1,4 +1,4 @@
-FROM ipython/ipython
+FROM ipython/ipython:3.x
 
 MAINTAINER IPython Project <ipython-dev@scipy.org>
 
