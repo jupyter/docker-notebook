@@ -8,7 +8,7 @@ containers:
 * [ipython/scipyserver](scipyserver) - Relies on `ipython/scipystack`, sets up a notebook server. See the [README](scipyserver/README.md) for usage instructions.
 * [ipython/notebook](notebook) - Relies on `ipython/ipython` and *just* sets up the IPython notebook. No additional Python packages are installed by default
 
-In practice though, the most recent versions of [each of these images is up on the Docker Hub](https://registry.hub.docker.com/repos/ipython/).
+In practice though, the most recent versions of [each of these images is up on the Docker Hub](https://hub.docker.com/u/ipython/).
 
 Instructions for each are within the respective folders for each, but to get started with the scipystack image for example, run `docker run -it ipython/scipystack /bin/bash`:
 
