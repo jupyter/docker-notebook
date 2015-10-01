@@ -2,7 +2,12 @@
 
 # Strict mode
 set -euo pipefail
-IFS=$'\n\t' 
+IFS=$'\n\t'
+
+# Set configuration defaults
+: ${PASSWORD:=""}
+: ${PEM_FILE:="/key.pem"}
+: ${USE_HTTP:=0}
 
 # Create the hash to pass to the IPython notebook, but don't export it so it doesn't appear
 # as an environment variable within IPython kernels themselves
@@ -22,3 +27,5 @@ else
 fi
 
 ipython2 notebook --no-browser --port 8888 --ip=* $CERTFILE_OPTION --NotebookApp.password="$HASH" --matplotlib=inline
+
+unset HASH
