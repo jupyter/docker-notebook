@@ -1,4 +1,4 @@
-IPython in Docker
+DEPRECATED - IPython in Docker
 =================
 
 **NOTE: This repository and the associated images on Docker Hub are deprecated. Please see https://github.com/jupyter/docker-stacks for update-to-date images of Project Jupyter assets in Docker images.**
